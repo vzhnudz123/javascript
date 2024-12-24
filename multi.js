@@ -5,5 +5,12 @@
     divi=a*b;
     console.log(divi);
     }
-    let dif=a-b;
-    console.log(dif);
+
+   let str="vishnu";
+    console.log(str);
+    typeof "vishnu";
+
+
+
+
+    
