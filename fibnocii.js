@@ -1,7 +1,12 @@
-let num=10;
-let temp=0;
+let i,n=8;
+let t1=0,t2=1;
+let nextterm=t1+t2;
 
-for(let i=1;i<=num;i++){
-    temp+=num;
+console.log(t1,t2);
+
+for (i=3;i<=n;++i) {
+    console.log(nextterm);
+    t1=t2;
+    t2=nextterm;
+    nextterm= t1+t2;
 }
-console.log(temp);
