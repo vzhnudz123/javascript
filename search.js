@@ -13,7 +13,7 @@ let v=arr.find(x=>arr);
 console.log(v);//find 1st student
 
 let fistin=arr.findIndex(x=>arr);
-console.log(fistin);//fist student index
+console.log("first student=",fistin);//fist student index
 
 let laststu=arr.findLastIndex(x=>arr);
 console.log(laststu);//last student index
