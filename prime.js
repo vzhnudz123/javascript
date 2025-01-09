@@ -1,11 +1,11 @@
-let num=15;
+let num=27;
 let div;
 
 for(var i=1;i<=num;i++){
     div=num/num;
 }  
     if(div==0){
-        console.log("prime");
+        console.log("value");
         
     }
     else{
