@@ -1,5 +1,5 @@
-let arr = ["vishnu", "vishnu", "rocky", "arun", "rocky"];
-let rev=arr.sort();
+let arr = ["vishnu", "vishnu", "Rocky", "arun", "rocky"];
+let rev=arr.map(Element=>Element.toLowerCase()).sort();
 
 for (let i = 1;i<rev.length; i++) {
 
