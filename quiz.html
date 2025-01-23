@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        .q1{
+            background-color: orange;
+            width: 300px;
+            padding-left: 20px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        #questions, #options, #result {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz App</h1>
+    <div id="questions"></div>
+    <div id="options"></div>
+    <button id="nextbtn">Next</button>
+    <div id="result"></div>
+
+    <script>
+        const questions = [
+            { question: "What is the big vehicle?", options: ["Car", "Bike", "Bus"], answer: "Bus" },
+            { question: "Who is the Prime Minister of India?", options: ["Vishnu", "Modiji", "Dilshad"], answer: "Modiji" },
+            { question: "Who is a good man in India?", options: ["Vishnu", "Njn", "Aroo"], answer: "Vishnu" }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionElement = document.getElementById("questions");
+        const optionsElement = document.getElementById("options");
+        const nextBtn = document.getElementById("nextbtn");
+        const resultElement = document.getElementById("result");
+
+        const loadQuestion = () => {
+            const currentQuestion = questions[currentQuestionIndex];
+            questionElement.textContent = currentQuestion.question;
+            optionsElement.innerHTML = "";
+            currentQuestion.options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.classList.add("option-btn");
+                button.onclick = () => selectOption(option);
+                optionsElement.appendChild(button);
+            });
+        };
+
+        const selectOption = (selectedOption) => {
+            const currentQuestion = questions[currentQuestionIndex];
+            if (selectedOption === currentQuestion.answer) {
+                score++;
+            }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        };
+
+        const showResult = () => {
+            questionElement.style.display = "none";
+            optionsElement.style.display = "none";
+            nextBtn.style.display = "none";
+            resultElement.textContent = `You scored ${score} out of ${questions.length}!`;
+        };
+
+        nextBtn.addEventListener("click", () => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        });
+
+        loadQuestion();
+    </script>
+</body>
+</html>

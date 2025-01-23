@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="one">
+    <input type="text" id="two">
+    <h2 id="i"></h2>
+    <button onclick="calculate('add')">+</button>
+    <button onclick="calculate('sub')">_</button>
+    <button onclick="calculate('mul')">*</button>
+    <button onclick="calculate('div')">/</button>
+    <script>
+        let calculate=(x)=>{
+let result;
+
+let num1=parseInt(document.getElementById('one').value)
+let num2=parseInt(document.getElementById('two').value)
+if(!num1 || !num2 ){
+    alert("invalid")
+}
+else{
+    if(x==='add'){
+        result=num1+num2;
+    }
+    else if(x==='sub'){
+        result=num1-num2;
+    }
+    else if(x=='mul'){
+        result=num1*num2;
+    }
+    else if(x=='div'){
+        result=num1/num2;
+    }
+    
+}
+document.getElementById("i").innerHTML=result;
+
+        }
+        
+    </script>
+</body>
+</html>

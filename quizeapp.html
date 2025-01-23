@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        .q1{
+            background-color: orange;
+            width: 300px;
+            padding-left: 20px;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        button{
+            width: 90px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Quiz App</h1>
+        <div id="questions"></div>
+        <div id="answer-buttons"></div>
+        <br>
+        <button id="nxt-btn" style="display:none;">Next</button> <!-- Initially hidden -->
+    </div>
+
+    <script>
+        const questions = [
+            {question: "What is the big vehicle...?", Options: ["Car", "Bike", "Bus"], correct: 2},
+            {question: "Who is the Prime Minister of India...?", Options: ["Vishnu", "Modijiii", "Dilshad"], correct: 1},
+            {question: "Who is India's good man...?", Options: ["Vishnu", "NJN", "Aroo"], correct: 0}
+        ];
+
+        const questionsel = document.getElementById("questions");
+        const ansbtn = document.getElementById("answer-buttons");
+        const nxtbtn = document.getElementById("nxt-btn");
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // Start the quiz
+        function startquiz() {
+            score = 0;
+            currentQuestionIndex = 0;
+            nxtbtn.style.display = "none"; // Hide the "Next" button initially
+            showquestions();
+        }
+
+        // Display the question and options
+        function showquestions() {
+            let currentQuestion = questions[currentQuestionIndex];
+            let questionnumber = currentQuestionIndex + 1;
+            questionsel.innerHTML = questionnumber + " . " + currentQuestion.question;
+
+            ansbtn.innerHTML = ""; // Clear previous options
+
+            currentQuestion.Options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                ansbtn.appendChild(button); // Assign options to buttons
+
+                button.onclick = () => {
+                    if (index === currentQuestion.correct) {
+                        score++;
+                    }
+                    nxtbtn.style.display = "inline"; // Show "Next" button after answering
+                    
+                };
+            });
+        }
+
+        // Show the score at the end
+        function showscore() {
+            questionsel.textContent = `Your score is ${score} out of ${questions.length}`;
+            ansbtn.innerHTML = "";
+            nxtbtn.style.display = "none"; // Hide "Next" button after quiz ends
+        }
+
+        // Handle clicking "Next" to move to the next question
+        function nextquestion() {
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < questions.length) {
+                showquestions(); // Show the next question
+                nxtbtn.style.display = "none"; // Hide the "Next" button until an answer is clicked
+            } else {
+                showscore(); // All questions answered, show score
+            }
+        }
+
+        // Set the event handler for the "Next" button
+        nxtbtn.onclick = nextquestion;
+
+        startquiz(); // to start  the quiz
+    </script>
+</body>
+</html>

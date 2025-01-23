@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .todo {
+            text-align: center;
+            background-color: yellow;
+            border-radius: 10px;
+            width: 600px;
+            height: 500px;
+            padding-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            
+        }
+        button{
+            border-radius: 5px;
+        }
+        .box{
+            background-color: yellow;
+        }
+        .box1{
+            background-color: yellow;
+            border-radius: 5px;
+
+        }
+
+        #task-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="todo">
+        <div>
+            <h2>To-Do APP</h2>
+            <div>
+                <input id="input-box" class="box1" type="text" placeholder="Add your text"style="font-size: 30px;">
+                <button onclick="add()" class="box" style="font-size: 20px;">Add Task</button>
+            </div>
+
+        </div>
+        <ul id=""></ul>
+
+    </div>
+
+    <SCript>
+        var arr=[];
+
+        var add=()=>{
+            var inputbox=document.getElementById("input-box").value;
+
+            if(inputbox==""){
+                alert("enter something");
+                return;
+            }
+
+            arr.push(inputbox);
+
+
+
+
+
+    </SCript>
+</body>
+</html>
