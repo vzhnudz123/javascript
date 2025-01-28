@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text Color</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            border: 1px solid black;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="myText">Hello, world!</h1>
+    <button onclick="color()">Change Color</button>
+
+    <div id="box"></div>
+    <button onclick="changeBoxColor()">Change Box Color</button>
+
+    <br>
+    <br>
+
+    <h1 id="hide">to click hide</h1>
+    <button onclick="togle(this)">click</button>
+   
+
+    <script>
+        function color(){
+            let text=document.getElementById("myText");
+            text.style.color=text.style.color==="blue"?"red":"blue";
+        }
+
+        function changeBoxColor(){
+            const box=document.getElementById("box");
+            box.style.backgroundColor=box.style.backgroundColor==="red"?"blue":"red";
+        }
+
+        function togle(){
+            const Hide=document.getElementById("hide");
+            Hide.style.display="none";
+             
+
+        }
+
+    </script>
+</body>
+</html>
+
